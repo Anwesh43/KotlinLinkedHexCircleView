@@ -10,7 +10,7 @@ import android.view.View
 import android.content.Context
 import android.graphics.*
 
-val HC_NODES : Int = 5
+val HC_NODES : Int = 6
 
 class LinkedHexCircleView(ctx : Context) : View(ctx) {
 
@@ -135,7 +135,7 @@ class LinkedHexCircleView(ctx : Context) : View(ctx) {
 
     data class LinkedHexCircle (var i : Int) {
 
-        private var curr : HCNode = HCNode(i + 1)
+        private var curr : HCNode = HCNode(0)
 
         private var dir : Int = 1
 
