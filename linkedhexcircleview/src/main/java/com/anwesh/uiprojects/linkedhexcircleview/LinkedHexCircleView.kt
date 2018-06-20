@@ -152,6 +152,28 @@ class LinkedHexCircleView(ctx : Context) : View(ctx) {
         fun startUpdating(startcb : () -> Unit) {
             curr.startUpdating(startcb)
         }
+    }
 
+    data class Renderer(var view : LinkedHexCircleView) {
+
+        private val animator : Animator = Animator(view)
+
+        private val lhc : LinkedHexCircle = LinkedHexCircle(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(Color.parseColor("#212121"))
+            lhc.draw(canvas, paint)
+            animator.animate {
+                lhc.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lhc.startUpdating {
+                animator.start()
+            }
+        }
     }
 }
