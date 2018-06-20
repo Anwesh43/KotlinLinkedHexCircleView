@@ -4,6 +4,7 @@ package com.anwesh.uiprojects.linkedhexcircleview
  * Created by anweshmishra on 20/06/18.
  */
 
+import android.app.Activity
 import android.view.MotionEvent
 import android.view.View
 import android.content.Context
@@ -176,6 +177,14 @@ class LinkedHexCircleView(ctx : Context) : View(ctx) {
             lhc.startUpdating {
                 animator.start()
             }
+        }
+    }
+
+    companion object {
+        fun create(activity : Activity)  : LinkedHexCircleView {
+            val view : LinkedHexCircleView = LinkedHexCircleView(activity)
+            activity.setContentView(view)
+            return view
         }
     }
 }
